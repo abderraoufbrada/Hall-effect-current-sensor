@@ -9,7 +9,7 @@
 ![Design](https://img.shields.io/badge/design-KiCad-blue)
 ![Report](https://img.shields.io/badge/report-LaTeX-green)
 
-<img src="docs/images/overview-photo.jpg" alt="Overview of the Hall effect current sensor" width="85%">
+<img src="photo_2026-11-23_22-12-20.jpg" alt="Overview of the Hall effect current sensor" width="85%">
 
 </div>
 
