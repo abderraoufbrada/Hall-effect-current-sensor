@@ -20,13 +20,14 @@
 1. [Overview](#overview)
 2. [Features](#features)
 3. [How it works](#how-it-works)
-4. [Circuit description](#circuit-description)
-5. [Bill of materials](#bill-of-materials)
-6. [Build and calibration](#build-and-calibration)
-7. [Results](#results)
-8. [Limitations and improvements](#limitations-and-improvements)
-9. [Repository structure](#repository-structure)
-10. [Author](#author)
+4. [Sensor head](#sensor-head)
+5. [Circuit description](#circuit-description)
+6. [Bill of materials](#bill-of-materials)
+7. [Build and calibration](#build-and-calibration)
+8. [Results](#results)
+9. [Limitations and improvements](#limitations-and-improvements)
+10. [Repository structure](#repository-structure)
+11. [Author](#author)
 
 ---
 
@@ -82,6 +83,28 @@ $$V_{out} = G\,S\,\frac{\mu_0 N}{g}\,I = S_I\,I$$
 
 $$I = \frac{V_{set}}{R_1}$$
 
+## Sensor head
+
+The sensor head is a ferrite ring with a small air gap. The measured wire is wound on one side of the ring, and the 49E Hall sensor sits in the gap with its flat face perpendicular to the magnetic field.
+
+<div align="center">
+
+| Sensor head (photo 1) | Sensor head (photo 2) |
+|:-:|:-:|
+| <img src="photo_2026-11-23_22-12-19%20(2).jpg" alt="Sensor head, photo 1" width="320"> | <img src="photo_2026-11-23_22-12-19.jpg" alt="Sensor head, photo 2" width="320"> |
+
+</div>
+
+| Parameter | Value |
+|-----------|-------|
+| Ferrite ring (outer / inner diameter, thickness) | TBD |
+| Air gap g | TBD mm |
+| Number of turns N | TBD |
+| Wire diameter | TBD mm |
+| Sensor position | Centered in the gap, flat face perpendicular to the field |
+
+> **Tip:** file names with spaces or brackets, like `photo_2026-11-23_22-12-19 (2).jpg`, can break image links. This README uses `%20` for the space. Renaming the photo (for example to `sensor-head-1.jpg`) is more reliable.
+
 ## Circuit description
 
 <img src="docs/images/schematic-full.png" alt="Full schematic: current adjust circuit, Hall effect sensor, offset regulator and amplifier" width="100%">
@@ -125,6 +148,10 @@ $$G = 1 + \frac{100\,k\Omega}{R_{11}}$$
 
 With R11 = 10 kΩ the gain is 11, and it increases as R11 is turned down.
 
+<!-- Add photos of the real conditioning circuit and the real test-current circuit here, for example:
+<img src="real-circuit-conditioning.jpg" alt="Real conditioning circuit" width="60%">
+-->
+
 ## Bill of materials
 
 | Qty | Component | Value / note |
@@ -148,7 +175,7 @@ With R11 = 10 kΩ the gain is 11, and it increases as R11 is turned down.
 
 ## Build and calibration
 
-1. **Build the sensor head.** Wind N turns on one side of the ferrite ring and place the 49E in the air gap, flat face perpendicular to the field. Fix it mechanically.
+1. **Build the sensor head.** Wind N turns on one side of the ferrite ring and place the 49E in the air gap, flat face perpendicular to the field. Fix it mechanically (see [Sensor head](#sensor-head)).
 2. **Power up.** Connect +12 V (test source), +5 V (Hall sensor) and ±5 V (op-amps). Share a common ground.
 3. **Zero the output.** With no current, turn RV1 until the output is 0 V.
 4. **Choose the gain.** Set R11 for the range you need, without clipping near the ±5 V rails.
@@ -160,7 +187,11 @@ With R11 = 10 kΩ the gain is 11, and it increases as R11 is turned down.
 
 ## Results
 
-<img src="photo_2026-11-23_22-12-21.jpg" alt="Output voltage versus current" width="70%">
+<div align="center">
+
+<img src="photo_2026-11-23_22-12-21.jpg" alt="Measurement of the sensor output" width="70%">
+
+</div>
 
 | Parameter | Value |
 |-----------|-------|
@@ -172,14 +203,9 @@ With R11 = 10 kΩ the gain is 11, and it increases as R11 is turned down.
 | Non-linearity (% FS) | TBD |
 | Noise (peak to peak) | TBD mV |
 
-<details>
-<summary>Photos of the prototype</summary>
-
-| Sensor head | Conditioning circuit | Test-current circuit |
-|:-:|:-:|:-:|
-| <img src="docs/images/sensor-head-1.jpg" width="250"> | <img src="docs/images/real-circuit-conditioning.jpg" width="250"> | <img src="docs/images/real-circuit-test-current.jpg" width="250"> |
-
-</details>
+<!-- Add the plot of V_out versus I here, for example:
+<img src="vout-vs-current.png" alt="Output voltage versus current" width="70%">
+-->
 
 ## Limitations and improvements
 
@@ -203,11 +229,16 @@ With R11 = 10 kΩ the gain is 11, and it increases as R11 is turned down.
 ```
 .
 ├── README.md
+├── photo_2026-11-23_22-12-19.jpg       # sensor head, photo 2
+├── photo_2026-11-23_22-12-19 (2).jpg   # sensor head, photo 1
+├── photo_2026-11-23_22-12-20.jpg       # overview photo
+├── photo_2026-11-23_22-12-21.jpg       # measurement photo
 ├── docs/
-│   ├── images/              # schematic and photos
+│   ├── images/
+│   │   └── schematic-full.png          # KiCad schematic
 │   └── hall_current_sensor_report.pdf
 ├── hardware/
-│   └── kicad/               # KiCad project (schematic)
+│   └── kicad/                          # KiCad project (schematic)
 ├── report/
 │   └── hall_current_sensor_report.tex
 └── data/
