@@ -160,7 +160,7 @@ With R11 = 10 kΩ the gain is 11, and it increases as R11 is turned down.
 
 ## Results
 
-<img src="docs/images/vout-vs-current.png" alt="Output voltage versus current" width="70%">
+<img src="photo_2026-11-23_22-12-21.jpg" alt="Output voltage versus current" width="70%">
 
 | Parameter | Value |
 |-----------|-------|
