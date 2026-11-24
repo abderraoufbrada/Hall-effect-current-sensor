@@ -107,7 +107,7 @@ The sensor head is a ferrite ring with a small air gap. The measured wire is wou
 
 ## Circuit description
 
-<img src="docs/images/schematic-full.png" alt="Full schematic: current adjust circuit, Hall effect sensor, offset regulator and amplifier" width="100%">
+<img src="Screenshot 2026-11-24 150153.png" alt="Full schematic: current adjust circuit, Hall effect sensor, offset regulator and amplifier" width="100%">
 
 > The schematic is drawn in KiCad. Some symbols are stand-ins for the parts actually used (for example the Hall sensor symbol and the op-amp symbols). The functions and pinouts are the same.
 
@@ -220,7 +220,6 @@ With R11 = 10 kΩ the gain is 11, and it increases as R11 is turned down.
 - [ ] Mechanical mount for a fixed sensor position in the gap
 - [ ] Repeat the measurements (mean, standard deviation, error)
 - [ ] Calibrate against a reference current meter
-- [ ] Read V_out with an ESP32 ADC and display the current
 - [ ] Add temperature compensation
 - [ ] Design a PCB in KiCad
 
